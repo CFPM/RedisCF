@@ -1,5 +1,5 @@
 /*
- * Any changes should be made and pushed to here: https://github.com/Prefinem/RedBeanCF
+ * Any changes should be made and pushed to here: https://github.com/Prefinem/RedisCF
  * Author: William Giles
  * License: MIT http://opensource.org/licenses/MIT
  */
@@ -30,8 +30,7 @@ component {
 
 	public function set(string key, any value, string expiration=''){
 		if(this.complexTypes){
-			var json = SerializeJSON(value);
-			value = ToBase64(json);
+			value = BinaryEncode(ObjectSave(value), 'Base64');
 		}
 		var command = 'SET #key# #value# #expiration#';
 		call(command);
@@ -41,9 +40,7 @@ component {
 		var command = 'GET #key#';
 		var result = call(command);
 		if(this.complexTypes){
-			var binary = toBinary(result);
-			var json = toString(binary);
-			var result = DeserializeJSON(json);
+			var result = ObjectLoad(BinaryDecode(result, 'Base64'));
 		}
 		return result;
 	}
