@@ -12,11 +12,11 @@ MIT http://opensource.org/licenses/MIT
 
 ##Installation
 
-Micro CF is installed using CFPM or can be downloaded from source
+MicroCF is installed using CFPM or can be downloaded from source
 
 ###CFPM
 
-    python cfpm.py require redis
+    cfpm add redis
 
 ##Basic Usage
 
