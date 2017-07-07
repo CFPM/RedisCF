@@ -2,7 +2,6 @@
     "name" : "redis",
     "version" : "master",
     "repository" : "https://github.com/Prefinem/RedisCF",
-
     "author": "William Giles",
     "homepage": "https://github.com/Prefinem",
     "description" : "A Native Lightweight Coldfusion Redis Wrapper",
